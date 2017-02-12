@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExeAttacher.Core", "ExeAttacher.Core\ExeAttacher.Core.csproj", "{EDA1B557-4F08-4958-8E4D-D99BBF5D4B07}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01. Core", "01. Core", "{0E178FE9-1375-4B05-849B-7C902BFEAC77}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02. Services", "02. Services", "{1E4C1A6F-597F-47B1-9E68-CB8FE60FDD6B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03. UI", "03. UI", "{F993DE66-7B42-4876-92C9-7DF790BB083B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04. Console", "04. Console", "{3C942EC0-D683-4D86-945D-851DC7172478}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05. Tests", "05. Tests", "{8C0175B5-242F-40E9-B957-6034EBDC35EF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{186E720E-753D-4599-ABDA-CB55AB253CCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExeAttacher.LightInject", "ExeAttacher.LightInject\ExeAttacher.LightInject.csproj", "{617A523B-983E-4576-8660-24571C3C71EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EDA1B557-4F08-4958-8E4D-D99BBF5D4B07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDA1B557-4F08-4958-8E4D-D99BBF5D4B07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDA1B557-4F08-4958-8E4D-D99BBF5D4B07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDA1B557-4F08-4958-8E4D-D99BBF5D4B07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{617A523B-983E-4576-8660-24571C3C71EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{617A523B-983E-4576-8660-24571C3C71EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{617A523B-983E-4576-8660-24571C3C71EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{617A523B-983E-4576-8660-24571C3C71EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EDA1B557-4F08-4958-8E4D-D99BBF5D4B07} = {0E178FE9-1375-4B05-849B-7C902BFEAC77}
+		{617A523B-983E-4576-8660-24571C3C71EA} = {0E178FE9-1375-4B05-849B-7C902BFEAC77}
+	EndGlobalSection
+EndGlobal
