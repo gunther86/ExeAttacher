@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
 using ExeAttacher.Core.Injection;
 using ExeAttacher.Core.LightInject;
+using ExeAttacher.Core.UI;
 using ExeAttacher.UI.ViewModels;
 using ExeAttacher.UI.ViewModels.Interfaces;
 using ExeAttacher.UI.Views;
@@ -24,6 +25,7 @@ namespace ExeAttacher.UI
         {
             this.Container = new LightInjectContainer();
             this.Container.RegisterInstance<IInjectionContainer>(this.Container);
+            this.Container.Register<IWindowService, WindowService>(Scope.Singleton);
             this.Container.Register<IWindowManager, WindowManager>(Scope.Singleton);
             this.Container.Register<IMainViewModel, MainViewModel>(Scope.Singleton);
         }

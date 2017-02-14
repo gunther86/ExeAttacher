@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExeAttacher.UI.Views", "Exe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExeAttacher.UI.ViewModels", "ExeAttacher.UI.ViewModels\ExeAttacher.UI.ViewModels.csproj", "{0315ABBF-979A-405D-9E87-E937378FA079}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExeAttacher.Core.UI", "ExeAttacher.Core.UI\ExeAttacher.Core.UI.csproj", "{93042A32-FEBC-4C9F-A26D-822A811529F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{0315ABBF-979A-405D-9E87-E937378FA079}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0315ABBF-979A-405D-9E87-E937378FA079}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0315ABBF-979A-405D-9E87-E937378FA079}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93042A32-FEBC-4C9F-A26D-822A811529F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93042A32-FEBC-4C9F-A26D-822A811529F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93042A32-FEBC-4C9F-A26D-822A811529F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93042A32-FEBC-4C9F-A26D-822A811529F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,5 +67,6 @@ Global
 		{BF5C4378-8F0E-413A-95FA-19281A22D165} = {F993DE66-7B42-4876-92C9-7DF790BB083B}
 		{049DF03A-E89A-4412-943E-F27723B5CF8C} = {F993DE66-7B42-4876-92C9-7DF790BB083B}
 		{0315ABBF-979A-405D-9E87-E937378FA079} = {F993DE66-7B42-4876-92C9-7DF790BB083B}
+		{93042A32-FEBC-4C9F-A26D-822A811529F5} = {0E178FE9-1375-4B05-849B-7C902BFEAC77}
 	EndGlobalSection
 EndGlobal
