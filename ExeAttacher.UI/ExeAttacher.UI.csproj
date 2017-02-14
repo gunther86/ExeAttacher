@@ -123,9 +123,9 @@
       <Project>{eda1b557-4f08-4958-8e4d-d99bbf5d4b07}</Project>
       <Name>ExeAttacher.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ExeAttacher.LightInject\ExeAttacher.LightInject.csproj">
+    <ProjectReference Include="..\ExeAttacher.LightInject\ExeAttacher.Core.LightInject.csproj">
       <Project>{617a523b-983e-4576-8660-24571c3c71ea}</Project>
-      <Name>ExeAttacher.LightInject</Name>
+      <Name>ExeAttacher.Core.LightInject</Name>
     </ProjectReference>
     <ProjectReference Include="..\ExeAttacher.UI.ViewModels\ExeAttacher.UI.ViewModels.csproj">
       <Project>{0315abbf-979a-405d-9e87-e937378fa079}</Project>

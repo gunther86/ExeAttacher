@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05. Tests", "05. Tests", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{186E720E-753D-4599-ABDA-CB55AB253CCF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExeAttacher.LightInject", "ExeAttacher.LightInject\ExeAttacher.LightInject.csproj", "{617A523B-983E-4576-8660-24571C3C71EA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExeAttacher.Core.LightInject", "ExeAttacher.LightInject\ExeAttacher.Core.LightInject.csproj", "{617A523B-983E-4576-8660-24571C3C71EA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExeAttacher.UI", "ExeAttacher.UI\ExeAttacher.UI.csproj", "{BF5C4378-8F0E-413A-95FA-19281A22D165}"
 EndProject
