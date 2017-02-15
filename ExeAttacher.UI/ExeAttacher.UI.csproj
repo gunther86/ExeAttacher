@@ -55,6 +55,10 @@
       <HintPath>..\packages\MahApps.Metro.1.4.3\lib\net45\MahApps.Metro.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.FontAwesome, Version=1.7.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.FontAwesome.1.7.1\lib\net46\MahApps.Metro.IconPacks.FontAwesome.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -126,6 +130,10 @@
     <ProjectReference Include="..\ExeAttacher.LightInject\ExeAttacher.Core.LightInject.csproj">
       <Project>{617a523b-983e-4576-8660-24571c3c71ea}</Project>
       <Name>ExeAttacher.Core.LightInject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExeAttacher.UI.Resources\ExeAttacher.UI.Resources.csproj">
+      <Project>{c265a3ab-f844-42ef-ac1d-3562ad562955}</Project>
+      <Name>ExeAttacher.UI.Resources</Name>
     </ProjectReference>
     <ProjectReference Include="..\ExeAttacher.UI.ViewModels\ExeAttacher.UI.ViewModels.csproj">
       <Project>{0315abbf-979a-405d-9e87-e937378fa079}</Project>

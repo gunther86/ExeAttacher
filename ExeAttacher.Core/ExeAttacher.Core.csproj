@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\FileConsts.cs" />
     <Compile Include="Injection\Scope.cs" />
     <Compile Include="Injection\IInjectionCompositionRoot.cs" />
     <Compile Include="Injection\IInjectionContainer.cs" />

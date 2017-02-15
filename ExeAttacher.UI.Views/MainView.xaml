@@ -4,8 +4,31 @@
              xmlns:local="clr-namespace:ExeAttacher.UI.Views"
              xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
-             Dialog:DialogParticipation.Register="{Binding DataContext}">
-    <Grid>
-        <TextBlock Text="Hello World!"/>       
+             xmlns:Resources="clr-namespace:ExeAttacher.UI.Resources;assembly=ExeAttacher.UI.Resources"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             Dialog:DialogParticipation.Register="{Binding}"
+             Height="200" Width="500">
+    
+    <Grid Margin="10" VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="0" Grid.Row="0" Text="{x:Static Resources:Texts.MainViewModel_File}" Margin="0,0,10,0"/>
+
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Orientation="Horizontal">
+            <TextBox Name="SourceFile" Width="400"/>
+            <Button Name="BrowseFile" Content="{iconPacks:PackIconFontAwesome Folder}"/>
+        </StackPanel>
+
+        <Button Name="ConvertFile" Grid.Column="2" Grid.Row="1" VerticalAlignment="Bottom"/>
     </Grid>
 </Controls:MetroWindow>
+
+    
