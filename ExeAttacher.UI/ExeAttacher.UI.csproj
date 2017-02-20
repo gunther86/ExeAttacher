@@ -131,6 +131,14 @@
       <Project>{617a523b-983e-4576-8660-24571c3c71ea}</Project>
       <Name>ExeAttacher.Core.LightInject</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ExeAttacher.Services.AttachService\ExeAttacher.Services.AttachService.csproj">
+      <Project>{ca5cfc0a-2fe1-4506-804a-80b089fbc583}</Project>
+      <Name>ExeAttacher.Services.AttachService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExeAttacher.Services.FileServices\ExeAttacher.Services.FileServices.csproj">
+      <Project>{ce9a7c8c-d506-4da1-a5b8-d842a67714f3}</Project>
+      <Name>ExeAttacher.Services.FileServices</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ExeAttacher.UI.Resources\ExeAttacher.UI.Resources.csproj">
       <Project>{c265a3ab-f844-42ef-ac1d-3562ad562955}</Project>
       <Name>ExeAttacher.UI.Resources</Name>

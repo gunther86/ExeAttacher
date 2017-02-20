@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0315ABBF-979A-405D-9E87-E937378FA079}</ProjectGuid>
+    <ProjectGuid>{CA5CFC0A-2FE1-4506-804A-80B089FBC583}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ExeAttacher.UI.ViewModels</RootNamespace>
-    <AssemblyName>ExeAttacher.UI.ViewModels</AssemblyName>
+    <RootNamespace>ExeAttacher.Services.AttachService</RootNamespace>
+    <AssemblyName>ExeAttacher.Services.AttachService</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,24 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Caliburn.Micro, Version=3.0.3.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Caliburn.Micro.Core.3.0.3\lib\net45\Caliburn.Micro.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Caliburn.Micro.Platform, Version=3.0.3.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Caliburn.Micro.3.0.3\lib\net45\Caliburn.Micro.Platform.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Caliburn.Micro.Platform.Core, Version=3.0.3.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Caliburn.Micro.3.0.3\lib\net45\Caliburn.Micro.Platform.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Caliburn.Micro.3.0.3\lib\net45\System.Windows.Interactivity.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,20 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\IMainViewModel.cs" />
-    <Compile Include="MainViewModel.cs" />
+    <Compile Include="AttachServiceCompositionRoot.cs" />
+    <Compile Include="AttachService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ExeAttacher.Core.UI\ExeAttacher.Core.UI.csproj">
-      <Project>{93042a32-febc-4c9f-a26d-822a811529f5}</Project>
-      <Name>ExeAttacher.Core.UI</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ExeAttacher.Core\ExeAttacher.Core.csproj">
-      <Project>{EDA1B557-4F08-4958-8E4D-D99BBF5D4B07}</Project>
+      <Project>{eda1b557-4f08-4958-8e4d-d99bbf5d4b07}</Project>
       <Name>ExeAttacher.Core</Name>
     </ProjectReference>
   </ItemGroup>

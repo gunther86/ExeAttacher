@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using ExeAttacher.Core.Services;
 using ExeAttacher.Core.UI;
 using ExeAttacher.UI.ViewModels.Interfaces;
 using System;
@@ -14,12 +15,14 @@ namespace ExeAttacher.UI.ViewModels
     {
         private readonly IDictionary<string, string> validationErrors = new Dictionary<string, string>();
         private readonly IWindowService windowService;
+        private readonly IAttachService attachService;
         private bool isDoingAction;
         private string sourceFile;
 
-        public MainViewModel(IWindowService windowService)
+        public MainViewModel(IWindowService windowService, IAttachService attachService)
         {
             this.windowService = windowService;
+            this.attachService = attachService;
         }
 
         public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
@@ -81,18 +84,16 @@ namespace ExeAttacher.UI.ViewModels
 
             try
             {
-                await Task.Delay(3000);
+                await this.attachService.RevertExe(this.SourceFile);
             }
-            catch
+            catch(Exception ex)
             {
-
+                await this.windowService.ShowMessageDialog("Error", ex.Message);
             }
             finally
             {
                 this.IsDoingAction = false;
-            }
-
-            this.SourceFile = this.windowService.ShowOpenFileDialog();
+            }            
         }
 
         public IEnumerable GetErrors(string propertyName)

@@ -22,7 +22,7 @@ namespace ExeAttacher.UI
             {
                 Multiselect = false,
                 DefaultExt = FileConsts.ExeFileExtension,
-                Filter = "XML Files (*.xml)|*.xml"
+                Filter = $"Exe Files (*{FileConsts.ExeFileExtension})|*{FileConsts.ExeFileExtension}"
             };
 
             var result = dialog.ShowDialog();

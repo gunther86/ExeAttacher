@@ -25,6 +25,8 @@ namespace ExeAttacher.UI
         {
             this.Container = new LightInjectContainer();
             this.Container.RegisterInstance<IInjectionContainer>(this.Container);
+            this.Container.Register("ExeAttacher.Services.AttachService.*");
+            this.Container.Register("ExeAttacher.Services.FileServices.*");
             this.Container.Register<IWindowService, WindowService>(Scope.Singleton);
             this.Container.Register<IWindowManager, WindowManager>(Scope.Singleton);
             this.Container.Register<IMainViewModel, MainViewModel>(Scope.Singleton);
