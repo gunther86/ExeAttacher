@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExeAttacher.UI.Resources", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExeAttacher.Services.AttachService", "ExeAttacher.Services.AttachService\ExeAttacher.Services.AttachService.csproj", "{CA5CFC0A-2FE1-4506-804A-80B089FBC583}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExeAttacher.Services.AttachService.Tests", "ExeAttacher.Services.AttachService.Tests\ExeAttacher.Services.AttachService.Tests.csproj", "{C2349E9D-C7B3-42C3-B03B-A500C47F1003}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{CA5CFC0A-2FE1-4506-804A-80B089FBC583}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA5CFC0A-2FE1-4506-804A-80B089FBC583}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA5CFC0A-2FE1-4506-804A-80B089FBC583}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2349E9D-C7B3-42C3-B03B-A500C47F1003}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2349E9D-C7B3-42C3-B03B-A500C47F1003}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2349E9D-C7B3-42C3-B03B-A500C47F1003}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2349E9D-C7B3-42C3-B03B-A500C47F1003}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,5 +95,6 @@ Global
 		{CE9A7C8C-D506-4DA1-A5B8-D842A67714F3} = {1E4C1A6F-597F-47B1-9E68-CB8FE60FDD6B}
 		{C265A3AB-F844-42EF-AC1D-3562AD562955} = {F993DE66-7B42-4876-92C9-7DF790BB083B}
 		{CA5CFC0A-2FE1-4506-804A-80B089FBC583} = {1E4C1A6F-597F-47B1-9E68-CB8FE60FDD6B}
+		{C2349E9D-C7B3-42C3-B03B-A500C47F1003} = {8C0175B5-242F-40E9-B957-6034EBDC35EF}
 	EndGlobalSection
 EndGlobal

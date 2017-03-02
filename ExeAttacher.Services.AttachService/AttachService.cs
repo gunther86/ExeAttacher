@@ -23,9 +23,9 @@ namespace ExeAttacher.Services.AttachService
                 using (var sourceFile = this.fileHandlingService.GetFileStream(filePath))
                 using (var attachedFile = this.fileHandlingService.GetFileStream(Path.ChangeExtension(filePath, FileConsts.AttachedExtension)))
                 {
-                    byte[] header = new byte[2];
-
+                    var header = new byte[ExeMagicBytes.Length];
                     await sourceFile.ReadAsync(header, 0, header.Length);
+
                     if(Encoding.UTF8.GetString(header) == ExeMagicBytes)
                     {
                         await sourceFile.CopyToAsync(attachedFile);
@@ -58,6 +58,6 @@ namespace ExeAttacher.Services.AttachService
             {
                 // todo throw custom exception.
             }
-        }
+        }        
     }
 }
