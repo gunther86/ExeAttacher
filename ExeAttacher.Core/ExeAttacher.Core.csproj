@@ -41,16 +41,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\FileConsts.cs" />
+    <Compile Include="Exceptions\Exception.cs" />
+    <Compile Include="Exceptions\ExceptionArgs.cs" />
+    <Compile Include="Exceptions\NoAccessFileExceptionArgs.cs" />
+    <Compile Include="Exceptions\NoExeFileExceptionArgs.cs" />
     <Compile Include="Injection\Scope.cs" />
     <Compile Include="Injection\IInjectionCompositionRoot.cs" />
     <Compile Include="Injection\IInjectionContainer.cs" />
     <Compile Include="Injection\ServiceLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\ErrorMessages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErrorMessages.resx</DependentUpon>
+    </Compile>
     <Compile Include="Services\IAttachService.cs" />
     <Compile Include="Services\IFileHandlingService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Exceptions\" />
+    <EmbeddedResource Include="Resources\ErrorMessages.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

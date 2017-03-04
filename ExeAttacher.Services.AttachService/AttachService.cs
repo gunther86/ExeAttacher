@@ -1,4 +1,5 @@
 ﻿using ExeAttacher.Core.Constants;
+using ExeAttacher.Core.Exceptions;
 using ExeAttacher.Core.Services;
 using System.IO;
 using System.Text;
@@ -32,7 +33,7 @@ namespace ExeAttacher.Services.AttachService
                     }
                     else
                     {
-                        // todo throw custom exception.
+                        throw new Exception<NoExeFileExceptionArgs>(new NoExeFileExceptionArgs(filePath));
                     }
                 }
             }

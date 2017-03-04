@@ -1,6 +1,9 @@
-﻿using ExeAttacher.Core.Services;
+﻿using ExeAttacher.Core.Exceptions;
+using ExeAttacher.Core.Resources;
+using ExeAttacher.Core.Services;
 using FluentAssertions;
 using Moq;
+using System;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -58,6 +61,39 @@ namespace ExeAttacher.Services.AttachService.Tests
         public void AttachExe_ValidExeFile_ExtensionIsChanged()
         {
 
+        }
+
+        [Fact]
+        public async Task AttachExe_InValidExeFile_ExceptionIsThrown()
+        {
+            // Arrange.
+            string sourceFileName = "test.exe";
+            string destinationFileName = "test.att";
+            var header = Encoding.UTF8.GetBytes("ZM"); // Wrong header on purpouse.
+            var content = new byte[100];
+            content.FillWithRandomData();
+
+            var sourceStream = new MemoryStream(header.Concat(content).ToArray());
+
+            this.fileHandlingServiceMock.Setup(fh => fh.FileExists(sourceFileName))
+                .Returns(true);
+            this.fileHandlingServiceMock.Setup(fh => fh.GetFileStream(sourceFileName))
+                .Returns(sourceStream);
+
+            var testee = this.GetAttachService();
+
+            // Act.
+            var exceptionAssertion = await Assert.ThrowsAsync<Exception<NoExeFileExceptionArgs>>(() => testee.AttachExe(sourceFileName));
+
+            // Assert.
+            this.fileHandlingServiceMock.Verify(fh => fh.FileExists(sourceFileName), Times.Once);
+            this.fileHandlingServiceMock.Verify(fh => fh.GetFileStream(sourceFileName), Times.Once);
+            this.fileHandlingServiceMock.Verify(fh => fh.GetFileStream(destinationFileName), Times.Once);
+            exceptionAssertion.Args.FilePath.Should().Be(sourceFileName);
+            exceptionAssertion.Args.Message.Should().Be(string.Format(ErrorMessages.InvalidExeFile, sourceFileName));
+
+            // Cleanup.
+            sourceStream.Dispose();
         }
 
         private IAttachService GetAttachService()

@@ -7,7 +7,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace ExeAttacher.UI.ViewModels
 {
@@ -27,20 +26,11 @@ namespace ExeAttacher.UI.ViewModels
 
         public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
 
-        public bool CanBrowseFile
-        {
-            get { return !this.IsDoingAction; }
-        }
+        public bool CanBrowseFile => !this.IsDoingAction;
 
-        public bool CanConvertFile
-        {
-            get { return !this.IsDoingAction && !this.HasErrors; }
-        }
+        public bool CanConvertFile => !this.IsDoingAction && !this.HasErrors;
 
-        public bool HasErrors
-        {
-            get { return this.validationErrors.Any(); }
-        }
+        public bool HasErrors => this.validationErrors.Any();
 
         public string SourceFile
         {
@@ -86,14 +76,14 @@ namespace ExeAttacher.UI.ViewModels
             {
                 await this.attachService.RevertExe(this.SourceFile);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 await this.windowService.ShowMessageDialog("Error", ex.Message);
             }
             finally
             {
                 this.IsDoingAction = false;
-            }            
+            }
         }
 
         public IEnumerable GetErrors(string propertyName)
