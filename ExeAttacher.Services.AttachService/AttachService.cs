@@ -41,19 +41,15 @@ namespace ExeAttacher.Services.AttachService
 
         public async Task RevertExe(string filePath)
         {
-            if (filePath.EndsWith(FileConsts.AttachedExtension) && this.fileHandlingService.FileExists(filePath))
+            this.EnsureFileExists(filePath);
+            this.EnsureIsAttachedFileByName(filePath);
+
+            using (var sourceFile = this.fileHandlingService.GetFileStream(filePath))
+            using (var revertedFile = this.fileHandlingService.GetFileStream(Path.ChangeExtension(filePath, FileConsts.ExeFileExtension)))
             {
-                using (var sourceFile = this.fileHandlingService.GetFileStream(filePath))
-                using (var revertedFile = this.fileHandlingService.GetFileStream(Path.ChangeExtension(filePath, FileConsts.ExeFileExtension)))
-                {
-                    var header = Encoding.UTF8.GetBytes(ExeMagicBytes);
-                    await revertedFile.WriteAsync(header, 0, header.Length);
-                    await sourceFile.CopyToAsync(revertedFile);
-                }
-            }
-            else
-            {
-                // todo throw custom exception.
+                var header = Encoding.UTF8.GetBytes(ExeMagicBytes);
+                await revertedFile.WriteAsync(header, 0, header.Length);
+                await sourceFile.CopyToAsync(revertedFile);
             }
         }
 
@@ -65,9 +61,17 @@ namespace ExeAttacher.Services.AttachService
             }
         }
 
+        private void EnsureIsAttachedFileByName(string filePath)
+        {
+            if (!filePath.EndsWith(FileConsts.AttachedExtension))
+            {
+                throw new Exception<NoAttachFileExceptionArgs>(new NoAttachFileExceptionArgs(filePath));
+            }
+        }
+
         private void EnsureFileExists(string filePath)
         {
-            if(!this.fileHandlingService.FileExists(filePath))
+            if (!this.fileHandlingService.FileExists(filePath))
             {
                 throw new Exception<NoAccessFileExceptionArgs>(new NoAccessFileExceptionArgs(filePath));
             }

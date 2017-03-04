@@ -121,6 +121,10 @@
     <value>The file {0} is accessible.</value>
     <comment>{0} file path</comment>
   </data>
+  <data name="InvalidAttachedFile" xml:space="preserve">
+    <value>The file {0} is not a valid attached file.</value>
+    <comment>{0} file path</comment>
+  </data>
   <data name="InvalidExeFile" xml:space="preserve">
     <value>The file {0} is not a valid exe file.</value>
     <comment>{0} file path</comment>

@@ -70,6 +70,15 @@ namespace ExeAttacher.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The file {0} is not a valid attached file..
+        /// </summary>
+        public static string InvalidAttachedFile {
+            get {
+                return ResourceManager.GetString("InvalidAttachedFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The file {0} is not a valid exe file..
         /// </summary>
         public static string InvalidExeFile {

@@ -95,6 +95,26 @@ namespace ExeAttacher.Services.AttachService.Tests
         }
 
         [Fact]
+        public async Task AttachExe_InValidExeFileName_ExceptionIsThrown()
+        {
+            // Arrange.
+            string sourceFileName = "test.wrongExtension";
+            
+            this.fileHandlingServiceMock.Setup(fh => fh.FileExists(sourceFileName))
+                .Returns(true);
+            
+            var testee = this.GetAttachService();
+
+            // Act.
+            var exceptionAssertion = await Assert.ThrowsAsync<Exception<NoExeFileExceptionArgs>>(() => testee.AttachExe(sourceFileName));
+
+            // Assert.
+            this.fileHandlingServiceMock.Verify(fh => fh.FileExists(sourceFileName), Times.Once);
+            exceptionAssertion.Args.FilePath.Should().Be(sourceFileName);
+            exceptionAssertion.Args.Message.Should().Be(string.Format(ErrorMessages.InvalidExeFile, sourceFileName));
+        }
+
+        [Fact]
         public async Task AttachExe_FileNotExists_ExceptionIsThrown()
         {
             // Arrange.
@@ -107,6 +127,46 @@ namespace ExeAttacher.Services.AttachService.Tests
 
             // Act.
             var exceptionAssertion = await Assert.ThrowsAsync<Exception<NoAccessFileExceptionArgs>>(() => testee.AttachExe(sourceFileName));
+
+            // Assert.
+            this.fileHandlingServiceMock.Verify(fh => fh.FileExists(sourceFileName), Times.Once);
+            exceptionAssertion.Args.FilePath.Should().Be(sourceFileName);
+            exceptionAssertion.Args.Message.Should().Be(string.Format(ErrorMessages.CannotAccessToFile, sourceFileName));
+        }
+
+        [Fact]
+        public async Task RevertExe_InValidExeFileName_ExceptionIsThrown()
+        {
+            // Arrange.
+            string sourceFileName = "test.wrongExtension";
+
+            this.fileHandlingServiceMock.Setup(fh => fh.FileExists(sourceFileName))
+                .Returns(true);
+
+            var testee = this.GetAttachService();
+
+            // Act.
+            var exceptionAssertion = await Assert.ThrowsAsync<Exception<NoAttachFileExceptionArgs>>(() => testee.RevertExe(sourceFileName));
+
+            // Assert.
+            this.fileHandlingServiceMock.Verify(fh => fh.FileExists(sourceFileName), Times.Once);
+            exceptionAssertion.Args.FilePath.Should().Be(sourceFileName);
+            exceptionAssertion.Args.Message.Should().Be(string.Format(ErrorMessages.InvalidAttachedFile, sourceFileName));
+        }
+
+        [Fact]
+        public async Task RevertExe_FileNotExists_ExceptionIsThrown()
+        {
+            // Arrange.
+            string sourceFileName = "test.att";
+
+            this.fileHandlingServiceMock.Setup(fh => fh.FileExists(sourceFileName))
+                .Returns(false);
+
+            var testee = this.GetAttachService();
+
+            // Act.
+            var exceptionAssertion = await Assert.ThrowsAsync<Exception<NoAccessFileExceptionArgs>>(() => testee.RevertExe(sourceFileName));
 
             // Assert.
             this.fileHandlingServiceMock.Verify(fh => fh.FileExists(sourceFileName), Times.Once);

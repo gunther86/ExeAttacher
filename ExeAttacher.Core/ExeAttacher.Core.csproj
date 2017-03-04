@@ -44,6 +44,7 @@
     <Compile Include="Exceptions\Exception.cs" />
     <Compile Include="Exceptions\ExceptionArgs.cs" />
     <Compile Include="Exceptions\NoAccessFileExceptionArgs.cs" />
+    <Compile Include="Exceptions\NoAttachFileExceptionArgs.cs" />
     <Compile Include="Exceptions\NoExeFileExceptionArgs.cs" />
     <Compile Include="Injection\Scope.cs" />
     <Compile Include="Injection\IInjectionCompositionRoot.cs" />
