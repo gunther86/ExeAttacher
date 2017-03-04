@@ -19,27 +19,23 @@ namespace ExeAttacher.Services.AttachService
 
         public async Task AttachExe(string filePath)
         {
-            if (filePath.EndsWith(FileConsts.ExeFileExtension) && this.fileHandlingService.FileExists(filePath))
-            {
-                using (var sourceFile = this.fileHandlingService.GetFileStream(filePath))
-                using (var attachedFile = this.fileHandlingService.GetFileStream(Path.ChangeExtension(filePath, FileConsts.AttachedExtension)))
-                {
-                    var header = new byte[ExeMagicBytes.Length];
-                    await sourceFile.ReadAsync(header, 0, header.Length);
+            this.EnsureFileExists(filePath);
+            this.EnsureIsExeFileByName(filePath);
 
-                    if(Encoding.UTF8.GetString(header) == ExeMagicBytes)
-                    {
-                        await sourceFile.CopyToAsync(attachedFile);
-                    }
-                    else
-                    {
-                        throw new Exception<NoExeFileExceptionArgs>(new NoExeFileExceptionArgs(filePath));
-                    }
-                }
-            }
-            else
+            using (var sourceFile = this.fileHandlingService.GetFileStream(filePath))
+            using (var attachedFile = this.fileHandlingService.GetFileStream(Path.ChangeExtension(filePath, FileConsts.AttachedExtension)))
             {
-                // todo throw custom exception.
+                var header = new byte[ExeMagicBytes.Length];
+                await sourceFile.ReadAsync(header, 0, header.Length);
+
+                if (Encoding.UTF8.GetString(header) == ExeMagicBytes)
+                {
+                    await sourceFile.CopyToAsync(attachedFile);
+                }
+                else
+                {
+                    throw new Exception<NoExeFileExceptionArgs>(new NoExeFileExceptionArgs(filePath));
+                }
             }
         }
 
@@ -59,6 +55,22 @@ namespace ExeAttacher.Services.AttachService
             {
                 // todo throw custom exception.
             }
-        }        
+        }
+
+        private void EnsureIsExeFileByName(string filePath)
+        {
+            if (!filePath.EndsWith(FileConsts.ExeFileExtension))
+            {
+                throw new Exception<NoExeFileExceptionArgs>(new NoExeFileExceptionArgs(filePath));
+            }
+        }
+
+        private void EnsureFileExists(string filePath)
+        {
+            if(!this.fileHandlingService.FileExists(filePath))
+            {
+                throw new Exception<NoAccessFileExceptionArgs>(new NoAccessFileExceptionArgs(filePath));
+            }
+        }
     }
 }

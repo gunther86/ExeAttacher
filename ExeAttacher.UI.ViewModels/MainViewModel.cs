@@ -1,12 +1,14 @@
 ﻿using Caliburn.Micro;
 using ExeAttacher.Core.Services;
 using ExeAttacher.Core.UI;
+using ExeAttacher.UI.Resources;
 using ExeAttacher.UI.ViewModels.Interfaces;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace ExeAttacher.UI.ViewModels
 {
@@ -70,20 +72,7 @@ namespace ExeAttacher.UI.ViewModels
 
         public async void ConvertFile()
         {
-            this.IsDoingAction = true;
-
-            try
-            {
-                await this.attachService.RevertExe(this.SourceFile);
-            }
-            catch (Exception ex)
-            {
-                await this.windowService.ShowMessageDialog("Error", ex.Message);
-            }
-            finally
-            {
-                this.IsDoingAction = false;
-            }
+            await this.ExecuteActionWithTryCatch(this.RevertExeAction);
         }
 
         public IEnumerable GetErrors(string propertyName)
@@ -131,6 +120,29 @@ namespace ExeAttacher.UI.ViewModels
                 this.validationErrors.Remove(propertyName);
                 this.RaiseErrorsChanged(propertyName);
                 this.NotifyOfPropertyChange(() => this.CanConvertFile);
+            }
+        }
+
+        private Task RevertExeAction()
+        {
+            return this.attachService.RevertExe(this.SourceFile);
+        }
+
+        private async Task ExecuteActionWithTryCatch(Func<Task> action)
+        {
+            this.IsDoingAction = true;
+
+            try
+            {
+                await action();
+            }
+            catch (Exception ex)
+            {
+                await this.windowService.ShowMessageDialog(Texts.MainViewModel_Error, ex.Message);
+            }
+            finally
+            {
+                this.IsDoingAction = false;
             }
         }
     }

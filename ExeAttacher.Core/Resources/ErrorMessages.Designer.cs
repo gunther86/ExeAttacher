@@ -61,6 +61,15 @@ namespace ExeAttacher.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The file {0} is accessible..
+        /// </summary>
+        public static string CannotAccessToFile {
+            get {
+                return ResourceManager.GetString("CannotAccessToFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The file {0} is not a valid exe file..
         /// </summary>
         public static string InvalidExeFile {

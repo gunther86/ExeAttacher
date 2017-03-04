@@ -61,6 +61,15 @@ namespace ExeAttacher.UI.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string MainViewModel_Error {
+            get {
+                return ResourceManager.GetString("MainViewModel_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to File:.
         /// </summary>
         public static string MainViewModel_File {

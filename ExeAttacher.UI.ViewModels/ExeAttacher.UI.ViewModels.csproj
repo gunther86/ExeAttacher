@@ -72,6 +72,10 @@
       <Project>{EDA1B557-4F08-4958-8E4D-D99BBF5D4B07}</Project>
       <Name>ExeAttacher.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ExeAttacher.UI.Resources\ExeAttacher.UI.Resources.csproj">
+      <Project>{c265a3ab-f844-42ef-ac1d-3562ad562955}</Project>
+      <Name>ExeAttacher.UI.Resources</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

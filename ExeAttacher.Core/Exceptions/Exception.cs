@@ -40,7 +40,7 @@ namespace ExeAttacher.Core.Exceptions
             get
             {
                 string baseMessage = base.Message;
-                return (args == null) ? baseMessage : $"{baseMessage} ({args.Message})";
+                return (args == null) ? baseMessage : args.Message;
             }
         }
 

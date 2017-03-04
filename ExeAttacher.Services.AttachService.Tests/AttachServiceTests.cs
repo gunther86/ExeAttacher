@@ -3,7 +3,6 @@ using ExeAttacher.Core.Resources;
 using ExeAttacher.Core.Services;
 using FluentAssertions;
 using Moq;
-using System;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -60,7 +59,6 @@ namespace ExeAttacher.Services.AttachService.Tests
         [Fact]
         public void AttachExe_ValidExeFile_ExtensionIsChanged()
         {
-
         }
 
         [Fact]
@@ -94,6 +92,26 @@ namespace ExeAttacher.Services.AttachService.Tests
 
             // Cleanup.
             sourceStream.Dispose();
+        }
+
+        [Fact]
+        public async Task AttachExe_FileNotExists_ExceptionIsThrown()
+        {
+            // Arrange.
+            string sourceFileName = "test.exe";
+
+            this.fileHandlingServiceMock.Setup(fh => fh.FileExists(sourceFileName))
+                .Returns(false);
+
+            var testee = this.GetAttachService();
+
+            // Act.
+            var exceptionAssertion = await Assert.ThrowsAsync<Exception<NoAccessFileExceptionArgs>>(() => testee.AttachExe(sourceFileName));
+
+            // Assert.
+            this.fileHandlingServiceMock.Verify(fh => fh.FileExists(sourceFileName), Times.Once);
+            exceptionAssertion.Args.FilePath.Should().Be(sourceFileName);
+            exceptionAssertion.Args.Message.Should().Be(string.Format(ErrorMessages.CannotAccessToFile, sourceFileName));
         }
 
         private IAttachService GetAttachService()
