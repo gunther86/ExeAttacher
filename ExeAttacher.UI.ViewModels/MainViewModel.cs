@@ -1,14 +1,14 @@
-﻿using Caliburn.Micro;
-using ExeAttacher.Core.Services;
-using ExeAttacher.Core.UI;
-using ExeAttacher.UI.Resources;
-using ExeAttacher.UI.ViewModels.Interfaces;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
+using Caliburn.Micro;
+using ExeAttacher.Core.Services;
+using ExeAttacher.Core.UI;
+using ExeAttacher.UI.Resources;
+using ExeAttacher.UI.ViewModels.Interfaces;
 
 namespace ExeAttacher.UI.ViewModels
 {
@@ -38,7 +38,7 @@ namespace ExeAttacher.UI.ViewModels
         {
             get
             {
-                return sourceFile;
+                return this.sourceFile;
             }
 
             set
@@ -53,7 +53,7 @@ namespace ExeAttacher.UI.ViewModels
         {
             get
             {
-                return isDoingAction;
+                return this.isDoingAction;
             }
 
             set
@@ -92,9 +92,9 @@ namespace ExeAttacher.UI.ViewModels
 
         private void RaiseErrorsChanged(string propertyName)
         {
-            if (ErrorsChanged != null)
+            if (this.ErrorsChanged != null)
             {
-                ErrorsChanged(this, new DataErrorsChangedEventArgs(propertyName));
+                this.ErrorsChanged(this, new DataErrorsChangedEventArgs(propertyName));
             }
         }
 
@@ -112,6 +112,7 @@ namespace ExeAttacher.UI.ViewModels
                 {
                     this.validationErrors.Add(nameof(this.SourceFile), "select a file");
                 }
+
                 this.RaiseErrorsChanged(propertyName);
                 this.NotifyOfPropertyChange(() => this.CanConvertFile);
             }

@@ -1,5 +1,5 @@
-﻿using ExeAttacher.Core.Resources;
-using System;
+﻿using System;
+using ExeAttacher.Core.Resources;
 
 namespace ExeAttacher.Core.Exceptions
 {

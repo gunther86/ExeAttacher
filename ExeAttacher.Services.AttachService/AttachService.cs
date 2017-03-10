@@ -1,9 +1,9 @@
-﻿using ExeAttacher.Core.Constants;
-using ExeAttacher.Core.Exceptions;
-using ExeAttacher.Core.Services;
-using System.IO;
+﻿using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using ExeAttacher.Core.Constants;
+using ExeAttacher.Core.Exceptions;
+using ExeAttacher.Core.Services;
 
 namespace ExeAttacher.Services.AttachService
 {

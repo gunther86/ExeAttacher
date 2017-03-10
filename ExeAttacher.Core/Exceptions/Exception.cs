@@ -10,10 +10,10 @@ namespace ExeAttacher.Core.Exceptions
     {
         private readonly TExceptionArgs args;
 
-        public TExceptionArgs Args => this.args;
-
         public Exception(string message = null, Exception innerException = null)
-        : this(null, message, innerException) { }
+        : this(null, message, innerException)
+        {
+        }
 
         public Exception(TExceptionArgs args, string message = null, Exception innerException = null)
         : base(message, innerException)
@@ -28,20 +28,22 @@ namespace ExeAttacher.Core.Exceptions
             this.args = (TExceptionArgs)info.GetValue(nameof(this.Args), typeof(TExceptionArgs));
         }
 
-        [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.SerializationFormatter)]
-        public override void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            info.AddValue(nameof(this.Args), this.args);
-            base.GetObjectData(info, context);
-        }
+        public TExceptionArgs Args => this.args;
 
         public override string Message
         {
             get
             {
                 string baseMessage = base.Message;
-                return (args == null) ? baseMessage : args.Message;
+                return (this.args == null) ? baseMessage : this.args.Message;
             }
+        }
+
+        [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.SerializationFormatter)]
+        public override void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue(nameof(this.Args), this.args);
+            base.GetObjectData(info, context);
         }
 
         public override bool Equals(object obj)
@@ -52,7 +54,7 @@ namespace ExeAttacher.Core.Exceptions
                 return false;
             }
 
-            return object.Equals(args, other.args) && base.Equals(obj);
+            return object.Equals(this.args, other.args) && base.Equals(obj);
         }
 
         public override int GetHashCode()

@@ -1,9 +1,9 @@
-﻿using ExeAttacher.Core.Constants;
+﻿using System.Threading.Tasks;
+using System.Windows;
+using ExeAttacher.Core.Constants;
 using ExeAttacher.Core.UI;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
-using System.Threading.Tasks;
-using System.Windows;
 using win32 = Microsoft.Win32;
 
 namespace ExeAttacher.UI

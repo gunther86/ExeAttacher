@@ -1,5 +1,5 @@
-﻿using ExeAttacher.Core.Services;
-using System.IO;
+﻿using System.IO;
+using ExeAttacher.Core.Services;
 
 namespace ExeAttacher.Services.FileServices
 {

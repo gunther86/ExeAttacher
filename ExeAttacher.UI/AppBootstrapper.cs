@@ -1,14 +1,14 @@
-﻿using Caliburn.Micro;
+﻿using System;
+using System.Collections.Generic;
+using System.Reflection;
+using System.Windows;
+using Caliburn.Micro;
 using ExeAttacher.Core.Injection;
 using ExeAttacher.Core.LightInject;
 using ExeAttacher.Core.UI;
 using ExeAttacher.UI.ViewModels;
 using ExeAttacher.UI.ViewModels.Interfaces;
 using ExeAttacher.UI.Views;
-using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Windows;
 
 namespace ExeAttacher.UI
 {

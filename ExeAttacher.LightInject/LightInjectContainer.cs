@@ -1,10 +1,10 @@
-﻿using ExeAttacher.Core.Injection;
-using LightInject;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using ExeAttacher.Core.Injection;
+using LightInject;
 
 namespace ExeAttacher.Core.LightInject
 {

@@ -1,9 +1,5 @@
-﻿using ExeAttacher.Core.Resources;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using ExeAttacher.Core.Resources;
 
 namespace ExeAttacher.Core.Exceptions
 {

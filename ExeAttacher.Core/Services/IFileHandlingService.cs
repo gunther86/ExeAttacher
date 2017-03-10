@@ -8,6 +8,6 @@ namespace ExeAttacher.Core.Services
 
         bool FileExists(string filePath);
 
-        string ChangeExtension(string filePath, string newExtesion);        
+        string ChangeExtension(string filePath, string newExtesion);
     }
 }
