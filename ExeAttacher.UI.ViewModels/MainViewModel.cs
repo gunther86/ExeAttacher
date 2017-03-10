@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Caliburn.Micro;
+using ExeAttacher.Core.Constants;
 using ExeAttacher.Core.Services;
 using ExeAttacher.Core.UI;
 using ExeAttacher.UI.Resources;
@@ -72,7 +73,14 @@ namespace ExeAttacher.UI.ViewModels
 
         public async void ConvertFile()
         {
-            await this.ExecuteActionWithTryCatch(this.RevertExeAction);
+            if(this.IsExeFile())
+            {
+                await this.ExecuteActionWithTryCatch(this.AttachExeAction);
+            }
+            else if(this.IsAttachedFile())
+            {
+                await this.ExecuteActionWithTryCatch(this.RevertExeAction);
+            }
         }
 
         public IEnumerable GetErrors(string propertyName)
@@ -104,17 +112,11 @@ namespace ExeAttacher.UI.ViewModels
 
             if (string.IsNullOrEmpty(this.sourceFile))
             {
-                if (this.validationErrors.ContainsKey(propertyName))
-                {
-                    this.validationErrors[propertyName] = "select a file";
-                }
-                else
-                {
-                    this.validationErrors.Add(nameof(this.SourceFile), "select a file");
-                }
-
-                this.RaiseErrorsChanged(propertyName);
-                this.NotifyOfPropertyChange(() => this.CanConvertFile);
+                this.AddErrorToProperty(propertyName, Texts.MainViewModel_SelectFile);
+            }
+            else if(!this.IsValidFile())
+            {
+                this.AddErrorToProperty(propertyName, Texts.MainViewModel_FileNotValid);
             }
             else if (this.validationErrors.ContainsKey(propertyName))
             {
@@ -124,9 +126,29 @@ namespace ExeAttacher.UI.ViewModels
             }
         }
 
+        private void AddErrorToProperty(string propertyName, string errorMessage)
+        {
+            if (this.validationErrors.ContainsKey(propertyName))
+            {
+                this.validationErrors[propertyName] = errorMessage;
+            }
+            else
+            {
+                this.validationErrors.Add(propertyName, errorMessage);
+            }
+
+            this.RaiseErrorsChanged(propertyName);
+            this.NotifyOfPropertyChange(() => this.CanConvertFile);
+        }
+
         private Task RevertExeAction()
         {
             return this.attachService.RevertExe(this.SourceFile);
+        }
+
+        private Task AttachExeAction()
+        {
+            return this.attachService.AttachExe(this.SourceFile);
         }
 
         private async Task ExecuteActionWithTryCatch(Func<Task> action)
@@ -146,5 +168,11 @@ namespace ExeAttacher.UI.ViewModels
                 this.IsDoingAction = false;
             }
         }
+
+        private bool IsValidFile() => this.IsExeFile() || this.IsAttachedFile();
+
+        private bool IsExeFile() => this.SourceFile != null && this.SourceFile.EndsWith(FileConsts.ExeFileExtension, StringComparison.CurrentCultureIgnoreCase);
+
+        private bool IsAttachedFile() => this.SourceFile != null && this.SourceFile.EndsWith(FileConsts.AttachedExtension, StringComparison.CurrentCultureIgnoreCase);
     }
 }

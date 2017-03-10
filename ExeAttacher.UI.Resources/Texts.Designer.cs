@@ -61,6 +61,15 @@ namespace ExeAttacher.UI.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Convert.
+        /// </summary>
+        public static string MainViewModel_ConvertFile {
+            get {
+                return ResourceManager.GetString("MainViewModel_ConvertFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         public static string MainViewModel_Error {
@@ -75,6 +84,24 @@ namespace ExeAttacher.UI.Resources {
         public static string MainViewModel_File {
             get {
                 return ResourceManager.GetString("MainViewModel_File", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The selected file is not exe or att.
+        /// </summary>
+        public static string MainViewModel_FileNotValid {
+            get {
+                return ResourceManager.GetString("MainViewModel_FileNotValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select a file.
+        /// </summary>
+        public static string MainViewModel_SelectFile {
+            get {
+                return ResourceManager.GetString("MainViewModel_SelectFile", resourceCulture);
             }
         }
     }
